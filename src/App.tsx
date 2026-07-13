@@ -3,11 +3,12 @@ import { SPOTS } from './data/spots';
 import { fetchWeather, getFallbackWeather, type WeatherSnapshot } from './lib/weather';
 import { getSolunarInfo, type SolunarInfo } from './lib/solunar';
 import { buildRecommendation } from './lib/recommend';
-import { SpotPicker } from './components/SpotPicker';
+import { MapView } from './components/MapView';
 import { WeatherSummary } from './components/WeatherSummary';
 import { SpeciesCard } from './components/SpeciesCard';
 import { TipsPanel } from './components/TipsPanel';
 import './App.css';
+import 'leaflet/dist/leaflet.css';
 
 type LoadState =
   | { status: 'idle' }
@@ -48,10 +49,11 @@ function App() {
     <div className="app-shell">
       <header className="app-header">
         <h1>Coppell Area Fishing Guide</h1>
-        <p>Pick a spot near Coppell, TX and get today's best species, spots, methods, and bite windows.</p>
+        <p>Click a spot on the map to see what's biting, where to cast, and when to go.</p>
       </header>
 
-      <SpotPicker spots={SPOTS} selectedId={selectedId} onSelect={setSelectedId} />
+      <MapView spots={SPOTS} selectedSpot={selectedSpot} onSelect={setSelectedId} />
+      <p className="map-hint">Pins show approximate locations — verify exact access points on site. Red dots that appear after picking a spot mark good casting zones within it.</p>
 
       {selectedSpot && (
         <main className="results">
@@ -69,8 +71,22 @@ function App() {
           )}
           {loadState.status === 'ready' && <WeatherSummary weather={loadState.weather} solunar={loadState.solunar} />}
 
+          <section className="casting-spots">
+            <h3>Best spots to cast here</h3>
+            <ul>
+              {selectedSpot.castingSpots.map((cast) => (
+                <li key={cast.name}>
+                  <span className="cast-name">{cast.name}</span>
+                  <span className="cast-good-for">Good for: {cast.goodFor.join(', ')}</span>
+                  <span className="cast-note">{cast.note}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
           {recommendation && (
             <>
+              <h3 className="section-label">Fish in this spot</h3>
               <div className="species-grid">
                 {recommendation.species.map((rec) => (
                   <SpeciesCard key={rec.guide.species} recommendation={rec} />

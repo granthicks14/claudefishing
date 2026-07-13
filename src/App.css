@@ -20,55 +20,89 @@
   font-size: 16px;
 }
 
-/* Spot picker */
+/* Map */
 
-.spot-picker {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  margin-bottom: 32px;
+.map-container {
+  height: 420px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  z-index: 0;
 }
 
-.spot-card {
-  text-align: left;
+.map-hint {
+  font-size: 12px;
+  color: var(--text);
+  opacity: 0.75;
+  margin: 8px 4px 32px;
+}
+
+.section-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  opacity: 0.75;
+  margin: 4px 0 -4px;
+}
+
+/* Casting spots */
+
+.casting-spots {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 16px;
-  cursor: pointer;
+  padding: 18px 20px;
   box-shadow: var(--shadow);
-  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.spot-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.spot-card.selected {
-  border-color: var(--accent);
-  background: var(--accent-bg);
-}
-
-.spot-card-type {
-  display: inline-block;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: var(--accent-strong);
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.spot-card h3 {
+.casting-spots h3 {
   font-size: 16px;
-  margin-bottom: 4px;
+  color: var(--accent-strong);
+  margin-bottom: 10px;
 }
 
-.spot-card-distance {
-  font-size: 13px;
+.casting-spots ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.casting-spots li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-top: 1px dashed var(--border);
+  padding-top: 8px;
+}
+
+.casting-spots li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.cast-name {
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.cast-good-for {
+  font-size: 12px;
+  color: var(--sunrise);
+  font-weight: 600;
+}
+
+.cast-note {
+  width: 100%;
   color: var(--text);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Results */

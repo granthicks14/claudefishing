@@ -11,6 +11,15 @@ export interface SpeciesGuide {
   seasonalNotes: Partial<Record<Season, string>>;
 }
 
+export interface CastingSpot {
+  name: string;
+  /** Degrees of lat/lon offset from the spot's center coordinate — approximate, not surveyed */
+  latOffset: number;
+  lonOffset: number;
+  goodFor: string[];
+  note: string;
+}
+
 export interface FishingSpot {
   id: string;
   name: string;
@@ -21,6 +30,7 @@ export interface FishingSpot {
   description: string;
   access: string;
   species: SpeciesGuide[];
+  castingSpots: CastingSpot[];
 }
 
 export const SPOTS: FishingSpot[] = [
@@ -75,6 +85,29 @@ export const SPOTS: FishingSpot[] = [
         seasonalNotes: { summer: 'Night fishing is far more comfortable and often more productive in peak heat.' },
       },
     ],
+    castingSpots: [
+      {
+        name: 'Spillway current seam',
+        latOffset: -0.0009,
+        lonOffset: 0.0004,
+        goodFor: ['Striped Bass (hybrid & true striper)', 'White Bass'],
+        note: 'Right where fast water from the gates meets slack water — the single best cast in this spot when generation is running.',
+      },
+      {
+        name: 'East bank riprap',
+        latOffset: -0.0015,
+        lonOffset: 0.0022,
+        goodFor: ['White Bass', 'Striped Bass (hybrid & true striper)'],
+        note: 'Rock bank downstream on the east side — work spinners and slabs parallel to the rocks.',
+      },
+      {
+        name: 'Tailrace pool',
+        latOffset: -0.0032,
+        lonOffset: 0.0005,
+        goodFor: ['Blue & Channel Catfish'],
+        note: 'Slower, deeper water further downstream — anchor and soak bait here rather than casting into the fast current.',
+      },
+    ],
   },
   {
     id: 'grapevine-lake-main',
@@ -121,6 +154,29 @@ export const SPOTS: FishingSpot[] = [
         seasonalNotes: {},
       },
     ],
+    castingSpots: [
+      {
+        name: 'Main-lake rock point',
+        latOffset: 0.0016,
+        lonOffset: 0.0008,
+        goodFor: ['Largemouth Bass'],
+        note: 'Point extending out from the park — work it top to bottom, riprap holds fish at every depth.',
+      },
+      {
+        name: 'Creek arm timber',
+        latOffset: 0.0011,
+        lonOffset: -0.0037,
+        goodFor: ['Crappie', 'Largemouth Bass'],
+        note: 'Standing timber back in the cove — vertical jig around individual trees.',
+      },
+      {
+        name: 'Old creek channel flat',
+        latOffset: 0.0031,
+        lonOffset: 0.0023,
+        goodFor: ['Blue Catfish'],
+        note: 'Deeper water further from the bank where the old creek channel runs — best fished from a boat.',
+      },
+    ],
   },
   {
     id: 'elm-fork-coppell',
@@ -158,16 +214,39 @@ export const SPOTS: FishingSpot[] = [
         seasonalNotes: { summer: 'Gar are most visible and active in warm water.' },
       },
     ],
+    castingSpots: [
+      {
+        name: 'River bend hole',
+        latOffset: -0.0014,
+        lonOffset: 0.0018,
+        goodFor: ['Channel Catfish'],
+        note: 'Outside of the bend where current has dug out a deeper hole — classic catfish water.',
+      },
+      {
+        name: 'Laydown bank',
+        latOffset: 0.0009,
+        lonOffset: -0.0012,
+        goodFor: ['Largemouth Bass'],
+        note: 'Downed trees along the bank near the nature trail — pitch soft plastics tight to the wood.',
+      },
+      {
+        name: 'Slack pool',
+        latOffset: -0.0025,
+        lonOffset: -0.0008,
+        goodFor: ['Longnose/Spotted Gar'],
+        note: 'Calm, slow-moving pool out of the main current — good visibility for sight-casting gar.',
+      },
+    ],
   },
   {
-    id: 'coppell-park-ponds',
-    name: 'Coppell Neighborhood Park Ponds (Andrew Brown Park East, Wagon Wheel Park)',
+    id: 'andrew-brown-pond',
+    name: 'Andrew Brown Park East Pond',
     type: 'pond',
     distanceFromCoppell: 'In town',
-    latitude: 32.9546,
-    longitude: -96.9903,
+    latitude: 32.9556,
+    longitude: -96.9968,
     description:
-      'Small stocked community ponds inside Coppell city parks — the easiest, most beginner- and kid-friendly fishing in town. No boat required, short casts, and consistent panfish/catfish action.',
+      'A stocked community pond in Andrew Brown Park East — the easiest, most beginner- and kid-friendly fishing in town. No boat required, short casts, and consistent panfish/catfish action.',
     access:
       'Open park hours, paved paths to the bank, parking on site. Texas freshwater fishing license rules still apply to anglers 17 and up — check the current TPWD Outdoor Annual for license and possession-limit details before you go.',
     species: [
@@ -176,7 +255,7 @@ export const SPOTS: FishingSpot[] = [
         target: 'Deeper pockets near the pond outlet/aerator and any drop-off from the bank',
         methods: ['Simple bottom rig with a small weight', 'Bobber rig if catfish are feeding shallow after a fresh stocking'],
         baits: ['Nightcrawlers', 'Prepared dip/punch bait', 'Hot dog chunks'],
-        baseTimeNotes: 'Morning and evening are best, but these ponds also fish well midday, especially right after a stocking.',
+        baseTimeNotes: 'Morning and evening are best, but this pond also fishes well midday, especially right after a stocking.',
         seasonalNotes: { winter: 'Many DFW city ponds see winter trout/catfish stockings — check current City of Coppell Parks & Recreation postings.' },
       },
       {
@@ -194,6 +273,68 @@ export const SPOTS: FishingSpot[] = [
         baits: ['4in finesse worms', 'Small spinnerbaits'],
         baseTimeNotes: 'Early morning and last light produce the most and biggest bites.',
         seasonalNotes: {},
+      },
+    ],
+    castingSpots: [
+      {
+        name: 'Aerator / outlet pocket',
+        latOffset: 0.0004,
+        lonOffset: 0.0006,
+        goodFor: ['Channel Catfish'],
+        note: 'Deepest water in the pond and the most oxygenated — reliable catfish holding spot.',
+      },
+      {
+        name: 'Shaded dock edge',
+        latOffset: -0.0005,
+        lonOffset: -0.0004,
+        goodFor: ['Bluegill / Sunfish', 'Largemouth Bass'],
+        note: 'Shade plus structure — easiest, most consistent bank spot for kids and beginners.',
+      },
+    ],
+  },
+  {
+    id: 'wagon-wheel-pond',
+    name: 'Wagon Wheel Park Pond',
+    type: 'pond',
+    distanceFromCoppell: 'In town',
+    latitude: 32.9705,
+    longitude: -96.98,
+    description:
+      'A smaller stocked pond inside Wagon Wheel Park. Quiet, low-pressure water that fishes a lot like Andrew Brown Park East — good backup or first-fishing-trip spot.',
+    access:
+      'Open park hours, short walk from parking to the bank. Texas freshwater fishing license rules still apply to anglers 17 and up — check the current TPWD Outdoor Annual for license and possession-limit details before you go.',
+    species: [
+      {
+        species: 'Channel Catfish',
+        target: 'Deepest visible water, typically toward the pond center or near any inlet/outlet structure',
+        methods: ['Simple bottom rig with a small weight', 'Still-fish on bottom and wait'],
+        baits: ['Nightcrawlers', 'Prepared dip/punch bait', 'Hot dog chunks'],
+        baseTimeNotes: 'Morning and evening are best, but bites can come throughout the day.',
+        seasonalNotes: { winter: 'Check current City of Coppell Parks & Recreation postings for any winter stocking.' },
+      },
+      {
+        species: 'Bluegill / Sunfish',
+        target: 'Shallow edges near any brush, reeds, or shade',
+        methods: ['Small bobber and worm', 'Tiny inline spinner'],
+        baits: ['Redworms', 'Crickets'],
+        baseTimeNotes: 'Steady bite most of the day, best in morning shade.',
+        seasonalNotes: {},
+      },
+    ],
+    castingSpots: [
+      {
+        name: 'Pond center / deep pocket',
+        latOffset: 0.0002,
+        lonOffset: 0.0003,
+        goodFor: ['Channel Catfish'],
+        note: 'The deepest water available in a small pond like this — cast toward the middle and let it sit.',
+      },
+      {
+        name: 'Shaded bank edge',
+        latOffset: -0.0003,
+        lonOffset: -0.0002,
+        goodFor: ['Bluegill / Sunfish'],
+        note: 'Easiest, most reliable spot for a quick short-cast bite.',
       },
     ],
   },
