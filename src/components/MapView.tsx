@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Tooltip, Popup, useMap } from 'react-leaflet';
+import type { LatLngBoundsExpression } from 'leaflet';
 import type { FishingSpot } from '../data/spots';
 
 interface Props {
@@ -26,7 +27,19 @@ function FlyToSelected({ spot }: { spot: FishingSpot | null }) {
   return null;
 }
 
+function FitAllSpotsOnMount({ bounds }: { bounds: LatLngBoundsExpression }) {
+  const map = useMap();
+  useEffect(() => {
+    map.fitBounds(bounds, { padding: [30, 30] });
+    // Only run once on mount — per-spot selection is handled by FlyToSelected.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return null;
+}
+
 export function MapView({ spots, selectedSpot, onSelect }: Props) {
+  const bounds: LatLngBoundsExpression = spots.map((s) => [s.latitude, s.longitude]);
+
   return (
     <div className="map-container">
       <MapContainer center={COPPELL_CENTER} zoom={12} scrollWheelZoom style={{ height: '100%', width: '100%' }}>
@@ -82,6 +95,7 @@ export function MapView({ spots, selectedSpot, onSelect }: Props) {
           </CircleMarker>
         ))}
 
+        <FitAllSpotsOnMount bounds={bounds} />
         <FlyToSelected spot={selectedSpot} />
       </MapContainer>
     </div>

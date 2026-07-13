@@ -57,7 +57,10 @@ function App() {
       </header>
 
       <MapView spots={SPOTS} selectedSpot={selectedSpot} onSelect={setSelectedId} />
-      <p className="map-hint">Pins show approximate locations — verify exact access points on site. Click a labeled pin to zoom in; the gold star marks the best bass spot there, red dots are other casting zones.</p>
+      <p className="map-hint">
+        {SPOTS.length} spots — pins show approximate locations (a few are regional-scale estimates, flagged in their description) — verify exact access points on site.
+        Zoom in if labels overlap. Click a pin to zoom in on it; the gold star marks the best bass spot there, red dots are other casting zones.
+      </p>
 
       {selectedSpot && (
         <main className="results">
