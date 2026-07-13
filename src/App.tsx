@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { SPOTS } from './data/spots';
+import { SPOTS, isBassSpecies } from './data/spots';
 import { fetchWeather, getFallbackWeather, type WeatherSnapshot } from './lib/weather';
 import { getSolunarInfo, type SolunarInfo } from './lib/solunar';
 import { buildRecommendation } from './lib/recommend';
@@ -45,15 +45,19 @@ function App() {
     return buildRecommendation(selectedSpot, loadState.weather, loadState.solunar, new Date());
   }, [selectedSpot, loadState]);
 
+  const bassSpecies = recommendation?.species.filter((rec) => isBassSpecies(rec.guide.species)) ?? [];
+  const otherSpecies = recommendation?.species.filter((rec) => !isBassSpecies(rec.guide.species)) ?? [];
+  const bestCast = selectedSpot?.castingSpots.find((c) => c.isBest) ?? null;
+
   return (
     <div className="app-shell">
       <header className="app-header">
-        <h1>Coppell Area Fishing Guide</h1>
-        <p>Click a spot on the map to see what's biting, where to cast, and when to go.</p>
+        <h1>Coppell Area Bass Fishing Guide</h1>
+        <p>Click a spot on the map for the best bass water near Coppell — plus what else bites there, where to cast, and when to go.</p>
       </header>
 
       <MapView spots={SPOTS} selectedSpot={selectedSpot} onSelect={setSelectedId} />
-      <p className="map-hint">Pins show approximate locations — verify exact access points on site. Red dots that appear after picking a spot mark good casting zones within it.</p>
+      <p className="map-hint">Pins show approximate locations — verify exact access points on site. Click a labeled pin to zoom in; the gold star marks the best bass spot there, red dots are other casting zones.</p>
 
       {selectedSpot && (
         <main className="results">
@@ -71,12 +75,24 @@ function App() {
           )}
           {loadState.status === 'ready' && <WeatherSummary weather={loadState.weather} solunar={loadState.solunar} />}
 
+          {bestCast && (
+            <section className="best-spot-callout">
+              <span className="best-spot-badge">★ Best Bass Spot</span>
+              <h3>{bestCast.name}</h3>
+              <p>{bestCast.note}</p>
+              <p className="cast-good-for">Also good for: {bestCast.goodFor.join(', ')}</p>
+            </section>
+          )}
+
           <section className="casting-spots">
-            <h3>Best spots to cast here</h3>
+            <h3>All casting zones here</h3>
             <ul>
               {selectedSpot.castingSpots.map((cast) => (
-                <li key={cast.name}>
-                  <span className="cast-name">{cast.name}</span>
+                <li key={cast.name} className={cast.isBest ? 'is-best' : undefined}>
+                  <span className="cast-name">
+                    {cast.isBest && '★ '}
+                    {cast.name}
+                  </span>
                   <span className="cast-good-for">Good for: {cast.goodFor.join(', ')}</span>
                   <span className="cast-note">{cast.note}</span>
                 </li>
@@ -86,12 +102,24 @@ function App() {
 
           {recommendation && (
             <>
-              <h3 className="section-label">Fish in this spot</h3>
+              <h3 className="section-label">Bass here</h3>
               <div className="species-grid">
-                {recommendation.species.map((rec) => (
+                {bassSpecies.map((rec) => (
                   <SpeciesCard key={rec.guide.species} recommendation={rec} />
                 ))}
               </div>
+
+              {otherSpecies.length > 0 && (
+                <>
+                  <h3 className="section-label secondary">Other fish here</h3>
+                  <div className="species-grid secondary">
+                    {otherSpecies.map((rec) => (
+                      <SpeciesCard key={rec.guide.species} recommendation={rec} />
+                    ))}
+                  </div>
+                </>
+              )}
+
               <TipsPanel tips={recommendation.extraTips} />
             </>
           )}

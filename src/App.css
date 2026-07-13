@@ -39,6 +39,28 @@
   margin: 8px 4px 32px;
 }
 
+.map-container .map-spot-label {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: var(--shadow);
+  color: var(--text-h);
+  background: var(--surface);
+}
+
+.map-container .map-best-label {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: var(--shadow);
+  color: #5a3d00;
+  background: #ffc531;
+}
+
 .section-label {
   font-size: 13px;
   text-transform: uppercase;
@@ -46,6 +68,55 @@
   color: var(--text);
   opacity: 0.75;
   margin: 4px 0 -4px;
+}
+
+.section-label.secondary {
+  margin-top: 8px;
+}
+
+.species-grid.secondary {
+  opacity: 0.85;
+}
+
+.species-grid.secondary .species-card {
+  padding: 14px 16px;
+}
+
+.species-grid.secondary .species-card h3 {
+  font-size: 15px;
+}
+
+/* Best bass spot callout */
+
+.best-spot-callout {
+  background: linear-gradient(135deg, var(--accent-bg), var(--surface));
+  border: 2px solid #ffc531;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+.best-spot-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #5a3d00;
+  background: #ffc531;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 8px;
+}
+
+.best-spot-callout h3 {
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+
+.best-spot-callout p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 4px;
 }
 
 /* Casting spots */
@@ -86,6 +157,10 @@
 .casting-spots li:first-child {
   border-top: none;
   padding-top: 0;
+}
+
+.casting-spots li.is-best .cast-name {
+  color: #a3760a;
 }
 
 .cast-name {

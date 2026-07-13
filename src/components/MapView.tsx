@@ -20,7 +20,7 @@ function FlyToSelected({ spot }: { spot: FishingSpot | null }) {
   const map = useMap();
   useEffect(() => {
     if (spot) {
-      map.flyTo([spot.latitude, spot.longitude], 15, { duration: 0.75 });
+      map.flyTo([spot.latitude, spot.longitude], 16, { duration: 0.75 });
     }
   }, [spot, map]);
   return null;
@@ -38,16 +38,16 @@ export function MapView({ spots, selectedSpot, onSelect }: Props) {
           <CircleMarker
             key={spot.id}
             center={[spot.latitude, spot.longitude]}
-            radius={selectedSpot?.id === spot.id ? 12 : 9}
+            radius={selectedSpot?.id === spot.id ? 13 : 9}
             pathOptions={{
               color: TYPE_COLOR[spot.type],
               fillColor: TYPE_COLOR[spot.type],
-              fillOpacity: selectedSpot?.id === spot.id ? 0.9 : 0.6,
+              fillOpacity: selectedSpot?.id === spot.id ? 0.95 : 0.65,
               weight: selectedSpot?.id === spot.id ? 3 : 2,
             }}
             eventHandlers={{ click: () => onSelect(spot.id) }}
           >
-            <Tooltip direction="top" offset={[0, -6]}>
+            <Tooltip direction="top" offset={[0, -8]} permanent className="map-spot-label">
               {spot.name}
             </Tooltip>
           </CircleMarker>
@@ -57,11 +57,20 @@ export function MapView({ spots, selectedSpot, onSelect }: Props) {
           <CircleMarker
             key={cast.name}
             center={[selectedSpot.latitude + cast.latOffset, selectedSpot.longitude + cast.lonOffset]}
-            radius={7}
-            pathOptions={{ color: '#e0342f', fillColor: '#ff6b5e', fillOpacity: 0.85, weight: 2 }}
+            radius={cast.isBest ? 10 : 6}
+            pathOptions={
+              cast.isBest
+                ? { color: '#a3760a', fillColor: '#ffc531', fillOpacity: 0.95, weight: 3 }
+                : { color: '#e0342f', fillColor: '#ff6b5e', fillOpacity: 0.65, weight: 2 }
+            }
           >
-            <Tooltip direction="top" offset={[0, -5]}>
-              {cast.name}
+            <Tooltip
+              direction="top"
+              offset={[0, cast.isBest ? -9 : -6]}
+              permanent={cast.isBest}
+              className={cast.isBest ? 'map-best-label' : undefined}
+            >
+              {cast.isBest ? `★ Best bass spot: ${cast.name}` : cast.name}
             </Tooltip>
             <Popup>
               <strong>{cast.name}</strong>
