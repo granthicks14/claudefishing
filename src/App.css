@@ -1,0 +1,260 @@
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  font-size: 34px;
+  letter-spacing: -0.5px;
+}
+
+.app-header p {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* Spot picker */
+
+.spot-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.spot-card {
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.spot-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.spot-card.selected {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.spot-card-type {
+  display: inline-block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--accent-strong);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.spot-card h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.spot-card-distance {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* Results */
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.spot-detail {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.spot-detail h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.spot-description {
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+.spot-access {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.status-line {
+  font-size: 14px;
+  color: var(--text);
+  padding: 4px 2px;
+}
+
+.status-line.error {
+  color: var(--sunrise);
+}
+
+/* Weather summary */
+
+.weather-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
+}
+
+.weather-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.weather-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.weather-stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text);
+  opacity: 0.75;
+}
+
+/* Species grid */
+
+.species-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.species-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.species-card h3 {
+  font-size: 18px;
+  color: var(--accent-strong);
+}
+
+.species-section h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.species-section p,
+.species-section ul {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bait-line {
+  margin-top: 6px;
+}
+
+.time-windows {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.time-windows li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--accent-bg);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.time-window-label {
+  font-weight: 700;
+  color: var(--accent-strong);
+  white-space: nowrap;
+}
+
+.time-window-reason {
+  text-align: right;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.base-time-note {
+  opacity: 0.85;
+}
+
+.conditions-note {
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+
+.seasonal-note {
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+
+/* Tips panel */
+
+.tips-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+.tips-panel h3 {
+  font-size: 15px;
+  color: var(--sunrise);
+  margin-bottom: 10px;
+}
+
+.tips-panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
