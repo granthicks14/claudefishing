@@ -257,46 +257,6 @@ export const SPOTS: FishingSpot[] = [
     ],
   },
   {
-    id: 'vacc-lake',
-    name: '"Vacc Lake" — Village at Cottonwood Creek pond',
-    type: 'pond',
-    distanceFromCoppell: 'In town',
-    latitude: 32.9585,
-    longitude: -96.9945,
-    description:
-      'A neighborhood retention pond in the Village At Cottonwood Creek subdivision (VACC — confirmed that\'s what the name is short for), tucked between Layton Dr and Gifford Ct/Gifford Dr, with trail access into Andrew Brown Park East next door. A real listing for a Layton Dr home backing up to this exact pond describes it as fishable water right off the backyard trail. Small water like this in DFW almost always holds largemouth bass along with panfish. I still could not get a surveyed lat/long for it (my mapping tools are blocked here), so this pin is triangulated from your directions plus that listing, not GPS-confirmed — flag it again if it\'s still off.',
-    access:
-      'Likely HOA/neighborhood-adjacent — confirm it is publicly fishable before you go, and respect any posted private-property signage. Texas freshwater fishing license rules apply to anglers 17 and up on public water.',
-    species: [
-      {
-        species: 'Largemouth Bass',
-        target: 'Any dock, culvert, or brush cover along the bank — small ponds concentrate bass around the only structure available',
-        methods: ['Small soft plastic on a light jighead worked slowly', 'Beetle spin or small spinnerbait along the bank'],
-        baits: ['4in finesse worms', 'Small spinnerbaits', 'Small swim jigs'],
-        baseTimeNotes: 'Early morning and last hour of daylight are most reliable in a small pond like this.',
-        seasonalNotes: { spring: 'Bass push shallow to spawn near any hard bank or brush — sight-fishing is possible in clear stretches.' },
-      },
-      {
-        species: 'Bluegill / Sunfish',
-        target: 'Shallow shaded edges and any brush or reeds',
-        methods: ['Small bobber and worm'],
-        baits: ['Redworms', 'Crickets'],
-        baseTimeNotes: 'Steady most of the day, best in morning shade.',
-        seasonalNotes: {},
-      },
-    ],
-    castingSpots: [
-      {
-        name: 'North bank cover',
-        latOffset: 0.0004,
-        lonOffset: -0.0002,
-        goodFor: ['Largemouth Bass'],
-        note: 'Best-looking bass cover on this pond based on typical retention-pond layout — verify in person, exact structure not confirmed.',
-        isBest: true,
-      },
-    ],
-  },
-  {
     id: 'andrew-brown-pond',
     name: 'Andrew Brown Park East Pond',
     type: 'pond',
@@ -304,7 +264,7 @@ export const SPOTS: FishingSpot[] = [
     latitude: 32.9556,
     longitude: -96.9968,
     description:
-      'A stocked community pond in Andrew Brown Park East, known locally for holding some big bass alongside crappie and catfish — the easiest, most beginner- and kid-friendly fishing in town too. No boat required, short casts.',
+      "A stocked pond system in Andrew Brown Park East — TPWD tracks it as one official water body, and the park itself is about 118 acres, big enough that it has more than one bank access point. The main entrance/pier is off Parkway Blvd; there's also a quieter north arm reachable by the greenbelt trail from Layton Dr and Gifford Ct in the Village at Cottonwood Creek neighborhood (a real listing for a Layton Dr home backing onto it describes fishable water right off the backyard trail). Known locally for holding some big bass alongside crappie and catfish — also the easiest, most beginner- and kid-friendly fishing in town. No boat required, short casts.",
     access:
       'Open park hours, paved paths to the bank, parking on site. Texas freshwater fishing license rules still apply to anglers 17 and up — check the current TPWD Outdoor Annual for license and possession-limit details before you go.',
     species: [
@@ -356,6 +316,13 @@ export const SPOTS: FishingSpot[] = [
         lonOffset: 0.0006,
         goodFor: ['Channel Catfish', 'Crappie'],
         note: 'Deepest water in the pond and the most oxygenated — reliable catfish and crappie holding spot.',
+      },
+      {
+        name: 'North arm (Layton Dr / Gifford Ct trail access)',
+        latOffset: 0.0029,
+        lonOffset: 0.0023,
+        goodFor: ['Largemouth Bass'],
+        note: "Quieter back-trail access from the Village at Cottonwood Creek side of the park, away from the main Parkway Blvd entrance — good if you want fewer people around. Not a GPS-surveyed pin; placed from your directions and a nearby home listing describing this exact bank, not a map lookup, so treat it as approximate.",
       },
     ],
   },
