@@ -261,10 +261,10 @@ export const SPOTS: FishingSpot[] = [
     name: '"Vacc Lake" — Village at Cottonwood Creek pond',
     type: 'pond',
     distanceFromCoppell: 'In town',
-    latitude: 32.9605,
-    longitude: -96.9955,
+    latitude: 32.9585,
+    longitude: -96.9945,
     description:
-      "A neighborhood retention pond in the Village at Cottonwood Creek subdivision (north of Sandy Lake Rd, east of Denton Tap Rd, right by Andrew Brown Park East and the Cottonwood Creek greenbelt). Small water like this in DFW almost always holds largemouth bass along with panfish. I couldn't confirm an official name or exact boundary for this pond online — the pin is my best estimate from the neighborhood description, not a surveyed location, so please double check it on the ground and let me know if it needs to move.",
+      'A neighborhood retention pond in the Village At Cottonwood Creek subdivision (VACC — confirmed that\'s what the name is short for), tucked between Layton Dr and Gifford Ct/Gifford Dr, with trail access into Andrew Brown Park East next door. A real listing for a Layton Dr home backing up to this exact pond describes it as fishable water right off the backyard trail. Small water like this in DFW almost always holds largemouth bass along with panfish. I still could not get a surveyed lat/long for it (my mapping tools are blocked here), so this pin is triangulated from your directions plus that listing, not GPS-confirmed — flag it again if it\'s still off.',
     access:
       'Likely HOA/neighborhood-adjacent — confirm it is publicly fishable before you go, and respect any posted private-property signage. Texas freshwater fishing license rules apply to anglers 17 and up on public water.',
     species: [
