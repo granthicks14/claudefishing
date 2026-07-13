@@ -46,8 +46,8 @@ export const SPOTS: FishingSpot[] = [
     name: 'Grapevine Lake Dam & Tailrace (Elm Fork)',
     type: 'river',
     distanceFromCoppell: '~5 min from north Coppell',
-    latitude: 32.9857,
-    longitude: -97.0561,
+    latitude: 32.9702,
+    longitude: -97.0563,
     description:
       'The stretch of the Elm Fork Trinity River immediately below Grapevine Dam. Current from floodgate releases pulls baitfish through and stages migratory feeders right below the spillway — one of the best striper and white bass spots in the whole metroplex when the gates are running.',
     access:
@@ -127,13 +127,13 @@ export const SPOTS: FishingSpot[] = [
   },
   {
     id: 'grapevine-lake-main',
-    name: 'Grapevine Lake — Murrell Park / Meadowmere Park shoreline',
+    name: 'Grapevine Lake — Murrell Park shoreline',
     type: 'reservoir',
-    distanceFromCoppell: '~10 min from Coppell',
-    latitude: 32.9599,
-    longitude: -97.0353,
+    distanceFromCoppell: '~15-20 min from Coppell (north shore, Flower Mound)',
+    latitude: 32.9658,
+    longitude: -97.0554,
     description:
-      'Rocky points, boat docks, and standing timber along the south shore of Grapevine Lake — one of the most reliable largemouth bass shorelines close to Coppell. Good bank access with parking, plus a boat ramp if you want to work the deeper points.',
+      'Rocky points, boat docks, and standing timber along the north shore of Grapevine Lake at Murrell Park (880 Simmons Rd) — technically in Flower Mound rather than Coppell itself, but one of the most reliable largemouth bass shorelines on the lake and close enough to be worth the drive. Good bank access with parking, plus a boat ramp if you want to work the deeper points.',
     access: 'Public park access with parking, restrooms, and courtesy boat ramp at Murrell Park.',
     species: [
       {
@@ -200,8 +200,8 @@ export const SPOTS: FishingSpot[] = [
     name: 'Elm Fork Trinity River — Coppell / Grapevine Springs Park',
     type: 'river',
     distanceFromCoppell: '~5 min, inside Coppell city limits',
-    latitude: 32.9686,
-    longitude: -96.9825,
+    latitude: 32.9522,
+    longitude: -96.9992,
     description:
       'The river corridor running through Grapevine Springs Park and along the Coppell Nature Trail. A quieter, low-pressure option right in town with laydowns and undercut banks that hold largemouth bass — mixed sand/mud bottom with occasional deeper holes and downed timber.',
     access: 'Bank access via Grapevine Springs Park and the Coppell Nature/Bike Trail; easy walk-up spots, no boat needed.',
@@ -261,8 +261,8 @@ export const SPOTS: FishingSpot[] = [
     name: 'Andrew Brown Park East Pond',
     type: 'pond',
     distanceFromCoppell: 'In town',
-    latitude: 32.9556,
-    longitude: -96.9968,
+    latitude: 32.9808,
+    longitude: -96.9865,
     description:
       "A stocked pond system in Andrew Brown Park East — TPWD tracks it as one official water body, and the park itself is about 118 acres, big enough that it has more than one bank access point. The main entrance/pier is off Parkway Blvd; there's also a quieter north arm reachable by the greenbelt trail from Layton Dr and Gifford Ct in the Village at Cottonwood Creek neighborhood (a real listing for a Layton Dr home backing onto it describes fishable water right off the backyard trail). Known locally for holding some big bass alongside crappie and catfish — also the easiest, most beginner- and kid-friendly fishing in town. No boat required, short casts.",
     access:
@@ -319,10 +319,10 @@ export const SPOTS: FishingSpot[] = [
       },
       {
         name: 'North arm (Layton Dr / Gifford Ct trail access)',
-        latOffset: 0.0029,
-        lonOffset: 0.0023,
+        latOffset: -0.001,
+        lonOffset: -0.004,
         goodFor: ['Largemouth Bass'],
-        note: "Quieter back-trail access from the Village at Cottonwood Creek side of the park, away from the main Parkway Blvd entrance — good if you want fewer people around. Not a GPS-surveyed pin; placed from your directions and a nearby home listing describing this exact bank, not a map lookup, so treat it as approximate.",
+        note: "Quieter back-trail access from the Village at Cottonwood Creek side of the park, away from the main Parkway Blvd entrance — good if you want fewer people around. Not a GPS-surveyed pin; placed from your directions and a nearby home listing describing this exact bank, not a map lookup, so treat it as approximate — this offset moved along with the park's corrected center coordinate.",
       },
     ],
   },
@@ -331,8 +331,8 @@ export const SPOTS: FishingSpot[] = [
     name: 'Wagon Wheel Park Pond',
     type: 'pond',
     distanceFromCoppell: 'In town',
-    latitude: 32.9705,
-    longitude: -96.98,
+    latitude: 32.9654,
+    longitude: -97.0194,
     description:
       'A smaller stocked pond inside Wagon Wheel Park. Quiet, low-pressure water that fishes a lot like Andrew Brown Park East — good backup or first-fishing-trip spot, including for bass.',
     access:
@@ -386,8 +386,8 @@ export const SPOTS: FishingSpot[] = [
     name: 'Moore Road Park Pond',
     type: 'pond',
     distanceFromCoppell: 'In town',
-    latitude: 32.964,
-    longitude: -96.991,
+    latitude: 32.9823,
+    longitude: -96.9798,
     description:
       'A 30-acre city park at 600 N. Moore Rd, just east of Andrew Brown Park. The city rebuilt this pond in 2023 with a new boardwalk and purpose-built fish habitat on the pond floor — moss-back fish attractors, concrete culverts, and stone piles — specifically to hold largemouth bass and catfish, per Coppell\'s own project announcement. That\'s about as strong a bass endorsement as a small city pond gets.',
     access:
@@ -426,10 +426,10 @@ export const SPOTS: FishingSpot[] = [
     name: 'The Duck Pond Park',
     type: 'pond',
     distanceFromCoppell: 'In town',
-    latitude: 32.9465,
-    longitude: -96.9855,
+    latitude: 32.957,
+    longitude: -96.978,
     description:
-      'A 5-acre city park at 400 E Bethel School Rd, built around a small pond with fountains — TPWD tracks it as an official water body ("Duck Park Pond," water body code 0191) with its own stocking and record history. Fishbrain lists the same pond under the name "Duke Pond" (likely just a data-entry variant of "Duck Pond") with Largemouth Bass, Spotted Bass, and Bluegill logged.',
+      'A 5-acre city park at 400 E Bethel School Rd, built around a small pond with fountains — TPWD tracks it as an official water body ("Duck Park Pond," water body code 0191) with its own stocking and record history. Fishbrain lists the same pond under the name "Duke Pond" (likely just a data-entry variant of "Duck Pond") with Largemouth Bass, Spotted Bass, and Bluegill logged. I found a confirmed coordinate for a different address further east on the same road (967 E Bethel School Rd) but not for 400 E Bethel School Rd itself — this pin is estimated along Bethel School Rd from that reference point, not independently confirmed.',
     access: 'Open park hours, easy walk-up bank access, small — expect a lot of ducks and families.',
     species: [
       {
@@ -473,8 +473,8 @@ export const SPOTS: FishingSpot[] = [
     name: 'Cozby Library Pond',
     type: 'pond',
     distanceFromCoppell: 'In town',
-    latitude: 32.9553,
-    longitude: -96.9838,
+    latitude: 32.9735,
+    longitude: -96.9896,
     description:
       "A landscaping pond beside the Cozby Library & Community Commons at 177 N Heartz Rd — the library's reading area overlooks it across grassy slopes. Fishbrain lists it (as \"Cosby Library Pond\") with Largemouth Bass, Bluegill, and Spotted Bass logged. I could not confirm whether fishing is officially permitted here — it may be primarily a landscaping/decorative feature rather than a managed fishing pond, so check for posted signage before casting.",
     access:
@@ -513,8 +513,8 @@ export const SPOTS: FishingSpot[] = [
     name: 'Andrew Brown Park West Pond',
     type: 'pond',
     distanceFromCoppell: 'In town',
-    latitude: 32.954,
-    longitude: -97.0005,
+    latitude: 32.9804,
+    longitude: -96.9962,
     description:
       'TPWD tracks this as its own official water body (water body code 0044), separate from the East park pond — a scenic channel connects the two. Features a boardwalk overlook and the Civic Green lawn fronting the water. I could not find a specific stocked-species list distinct from the East pond in my research, so treat the species below as a reasonable assumption based on the connected East pond rather than a confirmed stocking record.',
     access: 'Open park hours, paved paths, parking on site. Texas freshwater fishing license rules apply to anglers 17 and up.',
@@ -552,10 +552,10 @@ export const SPOTS: FishingSpot[] = [
     name: 'Lakes of Coppell — McArthur Lake (private HOA)',
     type: 'reservoir',
     distanceFromCoppell: 'In town',
-    latitude: 32.9555,
-    longitude: -96.9665,
+    latitude: 32.965,
+    longitude: -96.965,
     description:
-      'A ~500-surface-acre network of man-made lakes and canals that give the Lakes of Coppell neighborhood (near S MacArthur Blvd & Sandy Lake Rd) its name — spring-fed, so they stay near-full year-round. The HOA has stocked channel catfish for community fishing events (1998, and again in "McArthur" Lake in 2010). Fishbrain also logs largemouth bass, crappie, bluegill, and green sunfish here.',
+      'A ~500-surface-acre network of man-made lakes and canals that give the Lakes of Coppell neighborhood (northeast Coppell, near S MacArthur Blvd & Sandy Lake Rd) its name — spring-fed, so they stay near-full year-round. The HOA has stocked channel catfish for community fishing events (1998, and again in "McArthur" Lake in 2010). Fishbrain also logs largemouth bass, crappie, bluegill, and green sunfish here. I could not find a confirmed coordinate for this neighborhood specifically (only the general "northeast Coppell" description), so this pin is a rougher estimate than most others on this map.',
     access:
       'PRIVATE — this is HOA-owned water, shoreline fishing and no-motor small boats are for residents/guests only, not the general public. Do not fish here without HOA authorization; included for completeness since it has real stocking and species data, not as an invitation to trespass.',
     species: [
@@ -600,8 +600,8 @@ export const SPOTS: FishingSpot[] = [
     name: 'North Lake',
     type: 'reservoir',
     distanceFromCoppell: '~10-15 min, just SE of Coppell',
-    latitude: 32.925,
-    longitude: -96.978,
+    latitude: 32.9428,
+    longitude: -96.9698,
     description:
       'A historic lake (dam completed 1957) on the South Fork of Grapevine Creek about two miles southeast of Coppell in northwest Dallas County — originally built as a cooling reservoir for a power plant. Dallas Parks & Recreation began fertilizing and stocking it with bass in 1978. Well documented (Texas State Historical Association, Wikipedia) with a real public bank-fishing park on the south shore. A bit further out than the other spots on this map, but well worth including — treat the pin as regional-approximate, not surveyed.',
     access: 'North Lake Park on the south shore — catch-and-release bank fishing, follow posted signage for closed sections.',
@@ -678,10 +678,10 @@ export const SPOTS: FishingSpot[] = [
     name: 'Cottonwood Branch (Cottonwood Creek)',
     type: 'river',
     distanceFromCoppell: 'In town',
-    latitude: 32.959,
-    longitude: -96.996,
+    latitude: 32.9825,
+    longitude: -96.9895,
     description:
-      'The creek itself (as opposed to the stocked park ponds it feeds) — runs along/through Andrew Brown Park and the Village at Cottonwood Creek neighborhood. Fishbrain logs Largemouth Bass, Green Sunfish, and Plains Longear Sunfish here. Moving creek water fishes differently than the adjacent stocked ponds — expect smaller, wilder fish rather than stocked trophy bass.',
+      'The creek itself (as opposed to the stocked park ponds it feeds) — runs along/through Andrew Brown Park and the Village at Cottonwood Creek neighborhood, just west of the Andrew Brown Park East pond. Fishbrain logs Largemouth Bass, Green Sunfish, and Plains Longear Sunfish here. Moving creek water fishes differently than the adjacent stocked ponds — expect smaller, wilder fish rather than stocked trophy bass.',
     access: 'Bank access via Andrew Brown Park trails and the neighborhood greenbelt.',
     species: [
       {
